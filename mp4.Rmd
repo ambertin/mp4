@@ -1,0 +1,152 @@
+---
+title: "MP4"
+author: "Audrey Bertin & Eva Gerstle"
+date: "11/27/2017"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message = FALSE, warning = FALSE}
+
+library(mdsr)
+library(tidyverse)
+library(RMySQL)
+db <-dbConnect_scidb(dbname = "imdb")
+
+```
+
+
+### Find information about the number of reboots, remakes, and sequels for each year
+
+```{r}
+
+remakes_reboots_sequels <- db %>%
+  dbGetQuery(
+    "SELECT kw.id, kw.keyword, t.title, t.production_year 
+     FROM imdb.keyword kw
+     JOIN movie_keyword mkw 
+     ON kw.id = mkw.keyword_id
+     JOIN title t
+     ON t.id = mkw.movie_id
+     WHERE kw.id IN (82, 1134, 20757) AND t.kind_id = 1;")
+
+# 82, 1134, and 20757 are the keyword id numbers that correspond to the keywords remake, reboot, and sequel.
+    
+#This query is optimized because we use the primary keys in the keyword and title tables to join. When we use "where" to select the IDs from title and keyword, SQL only has to look at 1 and 3 rows, respectively. On movie keyword, keyword id is indexed, so we only have to look at 32 rows when referencing that table! Therefore, this query is extremely fast.
+
+
+remakes_by_year <- remakes_reboots_sequels %>%
+  filter(!is.na(production_year)) %>%
+  group_by(production_year) %>%
+  summarize(
+    reboot = sum(keyword == "reboot"),
+    remake = sum(keyword == "remake"),
+    sequel = sum(keyword == "sequel"))
+
+remakes_by_year_gathered <- remakes_by_year %>%
+  gather(key = "type", value = "count", reboot:sequel)
+
+#This code puts the information pulled from the query into a form that allows us to graph the information for sequels, remakes, and reboots all on one single graph.
+
+#Note that the movie_keyword table includes keywords for remake, sequel, AND reboot (unlike the link_type table), so here we can see reboots as well.
+
+```
+
+### Function: most of each type made in any single year
+```{r}
+
+most_in_year <- function(movie_type) {
+  
+  remakes_reboots_sequels %>%
+  filter(keyword == movie_type, !is.na(production_year)) %>%
+  group_by(production_year, keyword) %>%
+  summarize(N = n()) %>%
+  arrange(desc(N)) %>%
+  head(1)
+  
+}
+
+# The above function finds the year with the most movies of a given type made (e.g. the year with the most sequels)
+
+list <- c("reboot", "remake", "sequel")
+top_year_by_type <- lapply(list, FUN = most_in_year) %>% bind_rows()
+
+```
+
+
+### Graph the numbers of remakes, reboots, and sequels over time
+
+```{r, warning = FALSE}
+
+remakes_by_year_gathered$type <- factor(remakes_by_year_gathered$type, levels = c("sequel", "remake", "reboot"))
+
+plot <- remakes_by_year_gathered %>%
+  ggplot(aes(x = production_year, y = count, fill = type)) +
+  geom_area(alpha = 0.6, position = "dodge") +
+  scale_x_continuous(
+    breaks = c(1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020),
+    expand = c(0,0)) + 
+    # Add more labels (for each decade) to the plot
+  geom_vline(xintercept = 2017) +
+  # Add a line showing the current year. All movies after this line are planned and not actually finished.
+  scale_fill_brewer(
+    palette = "Set1",
+    name= "Movie Type",
+    breaks = c("sequel","remake", "reboot"),
+    labels = c("Sequel", "Remake", "Reboot")) +
+  xlab(NULL) +
+  ylab("Number of Movies Produced") +
+  ggtitle ("Movie Sequels, Remakes, and Reboots Since 1895")+
+  geom_curve(
+    x = 1983, xend = 1994,
+    y = 105, yend = 116,
+    arrow = arrow(length = unit(0.3,"cm")),
+    curvature = -0.5) +
+  geom_curve(
+    x = 1950, xend = 1942,
+    y = 78, yend = 67,
+    arrow = arrow(length = unit(0.3, "cm")),
+    curvature = -0.5) +
+  geom_curve(
+    x = 2008, xend = 2017,
+    y = 15, yend = 5,
+    arrow = arrow(length = unit(0.3, "cm")),
+    curvature = 0.5) +
+  geom_vline(xintercept = 2002, color = "red", linetype = 2) +
+  geom_text(
+    x = 2008, y = 100,
+    label = "Spiderman\n released;\nleads to\nsuperhero\nmovie boom",
+    color = "red", 
+    size = 4) +
+# For these vertical lines, we're matching color of the line to both the type of movie it affects most and to the text describing the event
+  geom_vline(xintercept = 1927, color = "blue", linetype = 2) +
+  geom_text(
+    x = 1938, y = 110,
+    label = "Movies add sound;\nmany silent films\nstart being remade",
+    color = "blue",
+    size = 4) +
+  geom_vline(xintercept = 1948, linetype = 2) + 
+  geom_text(
+    x = 1958, y = 108,
+    label = "US v. Paramount\n Pictures Case\nBreaks Up\nStudio System",
+    size = 4) + 
+# A black vertical line here means it pretty much equally affects all movie types
+  geom_text(
+    x = 1955, y = 80,
+    label = "Most Remakes:\n67 in 1941",
+    size = 4) +
+  geom_text(
+    x = 1980, y = 100,
+    label = "Most Sequels:\n116 in 1994",
+    size = 4) +
+  geom_text(
+    x = 2010, y = 20,
+    label = "Most Reboots:\n5 in 2017",
+    size = 4) 
+
+plot +
+  geom_point(data = top_year_by_type, aes(x = production_year, y = N), shape = 21, size = 1, fill = "white", color = "black") # Plot top years for each type of movie as dots on the plot
+
+```
