@@ -5,7 +5,6 @@ date: "11/27/2017"
 output: html_document
 ---
 
-![](https://img.memecdn.com/rise-of-the-dawn-of-the-planet-of-apes_o_3562285.jpg)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -182,5 +181,20 @@ ggplot(total_movies, aes(x = production_year, y = number)) +
     breaks = c(10000, 20000, 30000, 40000, 50000, 60000),
     labels = c("10K", "20K", "30K", "40K", "50K", "60K")) +
   theme_fivethirtyeight()
+```
+
+The proportion of the sequels out of the total movies for each year
+```{r}
+proportion <- total_movies %>%
+  inner_join(remakes_by_year, by = 'production_year') %>%
+  mutate(sum_srr = remake + reboot + sequel) %>%
+  mutate(prop_srr = sum_srr/number *100)
+```
+
+```{r}
+ggplot(proportion, aes(x= production_year, y = prop_srr)) + 
+  geom_area(fill= "purple") + 
+  scale_x_continuous(name = "Production Year", limits = c(1895, 2017), breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020), labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
+  scale_y_continuous(name= "Percentange of Movies that are Unoriginal") 
 ```
 
