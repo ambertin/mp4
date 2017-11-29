@@ -16,27 +16,33 @@ library(mdsr)
 library(tidyverse)
 library(RMySQL)
 library(ggthemes)
+library(rvest)
+library(knitr)
 db <-dbConnect_scidb(dbname = "imdb")
 
 ```
 
-### Query to find total movies
+
+![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg)
+
+
+You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, The Mummy, a new Guardians of the Galaxy movie, a remake of Beauty and the Beast, a new Fast and the Furious, the ninth Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
+
+In a [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that they believe there are “#TooManyReboots.” We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production in history, and when considering the fact that more movies are being made now than ever before, unoriginal films make up significantly smaller proportion of the movie industry than they have in the past.
+
+In order to determine the number of unoriginal movies produced since 1895, we pulled data on all movies in the IMDb tagged with the keywords “`remake`,” “`reboot`,” or “`sequel`.” These tags represent unoriginal movies:
+
+Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and and remake it using different actors, more advanced film techniques or special effects. Often, remakes tend to add new, socially relevant dialogue in order to appeal to modern audiences. Think Scarface, which was based on a 1932 movie of the same name.
+
+Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to only its most core elements, and a new story is built predominantly from scratch. Think "Batman Begins" or the 2009 Star Trek movie that my family lovingly refers to as "Star Trek Kids".
+
+Sequels are works that continue the story of, or expand upon, earlier films. These generally have the same characters, and often similar settings, as the films they fellow. Pretty much every major film franchise has lots of sequels-Star Wars, Marvel superhero movies, and Pirates of the Caribbean, to name a few.
+
+
 
 ```{r}
 
-total_movies <- db %>%
-  dbGetQuery(
-    "SELECT production_year, count(*) AS number
-     FROM imdb.title
-     WHERE kind_id = 1 AND production_year BETWEEN 1895 and 2025
-     GROUP BY production_year;")
-
-```
-
-
-### Find information about the number of reboots, remakes, and sequels for each year
-
-```{r}
+# Query to find all movies tagged with remake, reboot, or sequel
 
 remakes_reboots_sequels <- db %>%
   dbGetQuery(
@@ -70,8 +76,10 @@ remakes_by_year_gathered <- remakes_by_year %>%
 
 ```
 
-### Function: most of each type made in any single year
+
 ```{r}
+
+# Function to find the 3 years with the most sequels, remakes, and reboots
 
 most_in_year <- function(movie_type) {
   
@@ -92,9 +100,9 @@ top_year_by_type <- lapply(list, FUN = most_in_year) %>% bind_rows()
 ```
 
 
-### Graph the numbers of remakes, reboots, and sequels over time
-
 ```{r, warning = FALSE}
+
+# Graph the numbers of remakes, reboots, and sequels over time
 
 remakes_by_year_gathered$type <- factor(remakes_by_year_gathered$type, levels = c("sequel", "remake", "reboot"))
 
@@ -130,25 +138,6 @@ plot <- remakes_by_year_gathered %>%
     y = 15, yend = 5,
     arrow = arrow(length = unit(0.3, "cm")),
     curvature = 0.5) +
-  geom_vline(xintercept = 2002, color = "red", linetype = 2) +
-  geom_text(
-    x = 2008, y = 100,
-    label = "Spiderman\n released;\nleads to\nsuperhero\nmovie boom",
-    color = "red", 
-    size = 4) +
-# For these vertical lines, we're matching color of the line to both the type of movie it affects most and to the text describing the event
-  geom_vline(xintercept = 1927, color = "blue", linetype = 2) +
-  geom_text(
-    x = 1938, y = 110,
-    label = "Movies add sound;\nmany silent films\nstart being remade",
-    color = "blue",
-    size = 4) +
-  geom_vline(xintercept = 1948, linetype = 2) + 
-  geom_text(
-    x = 1958, y = 108,
-    label = "US v. Paramount\n Pictures Case\nBreaks Up\nStudio System",
-    size = 4) + 
-# A black vertical line here means it pretty much equally affects all movie types
   geom_text(
     x = 1955, y = 80,
     label = "Most Remakes:\n67 in 1941",
@@ -164,10 +153,21 @@ plot <- remakes_by_year_gathered %>%
   theme_fivethirtyeight()
 
 plot +
-  geom_point(data = top_year_by_type, aes(x = production_year, y = N), shape = 21, size = 1, fill = "white", color = "black") # Plot top years for each type of movie as dots on the plot
+  geom_point(data = top_year_by_type, aes(x = production_year, y = N), shape = 21, size = 1, fill = "white", color = "black") #Plot top years for each type of movie as dots on the plot
 
 ```
 
+
+```{r}
+
+total_movies <- db %>%
+  dbGetQuery(
+    "SELECT production_year, count(*) AS number
+     FROM imdb.title
+     WHERE kind_id = 1 AND production_year BETWEEN 1895 and 2025
+     GROUP BY production_year;")
+
+```
 
 ```{r}
 ggplot(total_movies, aes(x = production_year, y = number)) +
@@ -183,6 +183,7 @@ ggplot(total_movies, aes(x = production_year, y = number)) +
   theme_fivethirtyeight()
 ```
 
+<<<<<<< HEAD
 The proportion of the sequels out of the total movies for each year
 ```{r}
 proportion <- total_movies %>%
@@ -196,5 +197,25 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
   geom_area(fill= "purple") + 
   scale_x_continuous(name = "Production Year", limits = c(1895, 2017), breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020), labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
   scale_y_continuous(name= "Percentange of Movies that are Unoriginal") 
+
+
+```
+
+```{r}
+url <- "http://www.boxofficemojo.com/alltime/world/"
+html_bom <- read_html(url)
+
+tables <- html_bom %>%
+  html_nodes("table")
+tables
+
+top_grossing <- tables[[3]] %>%
+  html_table(header = TRUE)
+
+colnames(top_grossing)[4] <- "Gross (millions)"
+
+kable(top_grossing[1:20, -(5:8) ], caption = "Top Grossing Movies of All Time")
+
+
 ```
 
