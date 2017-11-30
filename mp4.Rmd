@@ -113,6 +113,10 @@ plot <- remakes_by_year_gathered %>%
     breaks = c(1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020),
     expand = c(0,0)) + 
     # Add more labels (for each decade) to the plot
+  scale_y_continuous(
+    breaks = c(0, 30, 60, 90, 120),
+    labels = c("0", "30", "60", "90", "120 Movies")
+  ) + 
   geom_vline(xintercept = 2017) +
   # Add a line showing the current year. All movies after this line are planned and not actually finished.
   scale_fill_brewer(
@@ -169,22 +173,7 @@ total_movies <- db %>%
 
 ```
 
-```{r}
-ggplot(total_movies, aes(x = production_year, y = number)) +
-  geom_area() +
-  ggtitle("Total Number of Movies Made by Year") +
-  xlab(NULL) +
-  scale_x_continuous(
-    breaks = c(1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020),
-    expand = c(0,0)) +
-  scale_y_continuous(
-    breaks = c(10000, 20000, 30000, 40000, 50000, 60000),
-    labels = c("10K", "20K", "30K", "40K", "50K", "60K")) +
-  theme_fivethirtyeight()
-```
 
-<<<<<<< HEAD
-The proportion of the sequels out of the total movies for each year
 ```{r}
 proportion <- total_movies %>%
   inner_join(remakes_by_year, by = 'production_year') %>%
@@ -192,12 +181,13 @@ proportion <- total_movies %>%
   mutate(prop_srr = sum_srr/number *100)
 ```
 
-```{r}
+```{r, warning=FALSE}
 ggplot(proportion, aes(x= production_year, y = prop_srr)) + 
-  geom_area(fill= "purple") + 
+  geom_area() + 
   scale_x_continuous(name = "Production Year", limits = c(1895, 2017), breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020), labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
-  scale_y_continuous(name= "Percentange of Movies that are Unoriginal") 
-
+  scale_y_continuous(breaks = c(1, 2, 3, 4), labels = c("1%", "2%", "3%", "4%")) +
+  ggtitle ("Percentage of Movies Considered Unoriginal") +
+  theme_fivethirtyeight()
 
 ```
 
@@ -207,7 +197,6 @@ html_bom <- read_html(url)
 
 tables <- html_bom %>%
   html_nodes("table")
-tables
 
 top_grossing <- tables[[3]] %>%
   html_table(header = TRUE)
@@ -216,6 +205,6 @@ colnames(top_grossing)[4] <- "Gross (millions)"
 
 kable(top_grossing[1:20, -(5:8) ], caption = "Top Grossing Movies of All Time")
 
-
+# ^ Indicates the movie made its gross over multiple releases.
 ```
 
