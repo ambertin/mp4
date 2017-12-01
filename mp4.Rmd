@@ -1,9 +1,10 @@
 ---
-title: "MP4"
+title: "It's Time to Stop Complaining About the Amount of Sequels, Remakes, and Reboots"
 author: "Audrey Bertin & Eva Gerstle"
 date: "11/27/2017"
-output: html_document
-code_folding: hide
+output: 
+  html_document:
+    code_folding: hide
 ---
 
 
@@ -29,7 +30,7 @@ db <-dbConnect_scidb(dbname = "imdb")
 
 You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, The Mummy, a new Guardians of the Galaxy movie, a remake of Beauty and the Beast, a new Fast and the Furious, the ninth Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
 
-In a December 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that they believe there are “#TooManyReboots.” We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production in history, and when considering the fact that more movies are being made now than ever before, unoriginal films make up significantly smaller proportion of the movie industry than they have in the past.
+In a December 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that they believe there are “#TooManyReboots.” We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production in history, and when considering the fact that more movies are being made now than ever before, unoriginal films make up significantly smaller proportion of the movie industry than you may believe.
 
 In order to determine the number of unoriginal movies produced since 1895, we pulled data on all movies in the IMDb tagged with the keywords “`remake`,” “`reboot`,” or “`sequel`.” These tags represent unoriginal movies of several different types:
 
