@@ -1,16 +1,24 @@
 ---
+date: "`r format(Sys.time(), '%d %B, %Y')` at `r format(Sys.time(), '%r')`"  
 title: "It's Time to Stop Complaining About the Amount of Sequels, Remakes, and Reboots"
 author: "Audrey Bertin & Eva Gerstle"
-date: "11/27/2017"
 output: 
   html_document:
     code_folding: hide
+    fig_width: 12
+    fig_height: 8
+    fig_caption: true
+    theme: yeti
+    highlight: tango
+timezone: America/New_York    
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+*Tags:* movies, unoriginal, sequel, remake, reboot, history, hollywood
 
 ```{r, message = FALSE, warning = FALSE}
 
@@ -25,7 +33,7 @@ db <-dbConnect_scidb(dbname = "imdb")
 ```
 
 
-![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg)
+![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg){ width=10in }
 
 
 You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, The Mummy, a new Guardians of the Galaxy movie, a remake of Beauty and the Beast, a new Fast and the Furious, the ninth Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
