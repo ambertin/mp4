@@ -1,7 +1,7 @@
 ---
 date: "`r format(Sys.time(), '%d %B, %Y')` at `r format(Sys.time(), '%r')`"  
 title: "It's Time to Stop Complaining About the Amount of Sequels, Remakes, and Reboots"
-author: "Audrey Bertin & Eva Gerstle"
+author: "by Audrey Bertin and Eva Gerstle"
 output: 
   html_document:
     code_folding: hide
@@ -35,6 +35,7 @@ db <-dbConnect_scidb(dbname = "imdb")
 
 ![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg){ width=10in }
 
+==========================================================================================================
 
 You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, The Mummy, a new Guardians of the Galaxy movie, a remake of Beauty and the Beast, a new Fast and the Furious, the ninth Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
 
@@ -48,7 +49,7 @@ Reboots are complete overhauls of the source material–a reimagining of a story
 
 Sequels are works that continue the story of, or expand upon, earlier films. These generally have the same characters, and often similar settings, as the films they fellow. Pretty much every major film franchise has lots of sequels-Star Wars, Marvel superhero movies, and Pirates of the Caribbean, to name a few.
 
-
+<div style="margin-bottom:40px;">
 
 ```{r}
 
@@ -171,6 +172,8 @@ plot +
 
 ```
 
+</div>
+
 According to this IMDb data, the numbers of unoriginal movies released so far in 2017 were:
 
 	Sequels: 77
@@ -179,6 +182,7 @@ According to this IMDb data, the numbers of unoriginal movies released so far in
 
 These might seem like pretty big numbers when you consider how many movies you watch per year. Who has time to go see 77 sequels? When you looking at the history of sequels, remakes, and reboots over time, though the only movie type at its peak currently is reboots, with five films in 2017. Remakes and sequels both reached their peak production long ago: in the years 1941 and 1994, respectively. We have fewer sequels and remakes being made than before, and if we take into consideration the fact that the movie industry has grown over time, expanding to the point where around 60,000 movies are produced around the world each year, these unoriginal films make up a smaller percentage of the movie industry than they ever have before.
 
+<div style="margin-bottom:40px;">
 
 ```{r}
 
@@ -209,11 +213,16 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
 
 ```
 
+</div>
+
+
 The graph above shows that the highest percentage of unoriginal movies occurred in the 1940s. However, even the highest percentage year, 1942, sequels, remakes, and reboots only made up 4.6% of all the movies released that year. Since 1994, the percentage of unoriginal movies has been in considerable decline. In 2017 only two tenths of 1% of all movies made were unoriginal. An obvious reason for this is the large and increasing number of movies made. In 1942 only 2,291 movies were produced whereas in 2017 over 50,000 movies were created. Sequel, remake and reboot production can’t keep up with the ever growing number of movies made. 
 
 So if there really aren’t that many unoriginal movies being made, why does it seem like they’re everywhere?
 
 Even though we may seem crazy for claiming that there aren’t enough original movies after seeing all this data, there is certainly a reason that sequels, remakes, and reboots fill our thoughts so much. That reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” 
+
+
 
 
 ```{r}
@@ -230,8 +239,11 @@ colnames(top_grossing)[4] <- "Gross (millions)"
 
 kable(top_grossing[1:20, -(5:8) ], caption = "Top Grossing Movies of All Time")
 
-# ^ Indicates the movie made its gross over multiple releases.
 ```
+
+
+\s `^ Indicates the movie made its gross over multiple releases.`
+
 
 The success of unoriginal films becomes even more impressive when considering [individual years](https://stephenfollows.com/how-original-are-hollywood-movies/). In 2007, 2013, and 2014, all ten of the top ten grossing movies were “derived from a pre-existing movie or source.” 
 
@@ -242,3 +254,6 @@ There is little doubt that unoriginal movies make money. We like things we are f
  If they continue to do so, movie companies will continue to produce them at a fast rate, because there’s little risk involved. Producers have an idea of how big their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base that can be counted on to go watch the movie when it’s released. Who wouldn’t release a movie guaranteed to be a success?
 
 But these movies, numerically, do not dominate the industry as much as we think they do. There are plenty of original movies that are released every week. So if you’re someone who votes “#TooManyReboots,” it might be time to consider watching one of the 95+% of all movies that are completely original. Consider an indie movie instead next time you feel the urge to watch another Star Wars movie. 
+
+
+
