@@ -18,7 +18,7 @@ timezone: America/New_York
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-*Tags:* movies, sequel, remake, reboot, history, hollywood
+*Tags:* movies, sequel, remake, reboot, hollywood
 
 ```{r, message = FALSE, warning = FALSE}
 
@@ -37,17 +37,17 @@ db <-dbConnect_scidb(dbname = "imdb")
 
 ==========================================================================================================
 
-You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, The Mummy, a new Guardians of the Galaxy movie, a Beauty and the Beast remake, a new Fast and the Furious, the ninth Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
+You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, a new Guardians of the Galaxy, a Beauty and the Beast remake, the *ninth* Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
 
-In a December 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that they believe there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production in history, and when considering the fact that more movies are being made now than ever before, unoriginal films make up significantly smaller proportion of the movie industry than they have in the past.
+In a 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production, and when considering the fact that more movies are being made now than ever before, unoriginal films make up a significantly smaller proportion of the movie industry than in the past.
 
-In order to determine the number of unoriginal movies produced since 1895, we pulled data on all movies in the IMDb[^2] tagged with the keywords “`remake`,” “`reboot`,” or “`sequel`.” These tags represent unoriginal movies of several different types:
+In order to determine the number of unoriginal movies produced since 1895, we pulled data on all movies in the IMDb[^2] tagged with the keywords `remake`, `reboot`, or `sequel`. 
 
-Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and and remake it using different actors, more advanced film techniques or special effects. Often, remakes tend to add new, socially relevant dialogue in order to appeal to modern audiences. Think Scarface, which was based on a 1932 movie of the same name.
+Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think Scarface, based on a 1932 movie of the same name.
 
-Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to only its most core elements, and a new story is built predominantly from scratch. Think "Batman Begins" or the 2009 Star Trek movie that my family lovingly refers to as "Star Trek Kids".
+Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to its most core elements, and a new story is built predominantly from scratch. Think "Batman Begins" or the 2009 movie my family lovingly refers to as "Star Trek Kids."
 
-Sequels are works that continue the story of, or expand upon, earlier films. These generally have the same characters, and often similar settings, as the films they fellow. Pretty much every major film franchise has lots of sequels-Star Wars, Marvel superhero movies, and Pirates of the Caribbean, to name a few.
+Sequels continue the story of, or expand upon, earlier films. These often have the same characters, and similar settings, as the films they follow. Major film franchises have lots of sequels-Star Wars, Marvel, and Pirates of the Caribbean, to name a few.
 
 
 <div style="margin-bottom:40px;">
@@ -175,15 +175,13 @@ plot +
 
 </div>
 
-According to this IMDb data, the numbers of unoriginal movies released so far in 2017 were:
+According to the IMDb data, the numbers of unoriginal movies released in 2017 were:
 
 	Sequels: 77
 	Remakes: 17
 	Reboots: 5
 
-These might seem like pretty big numbers when you consider how many movies you watch per year. Who has time to go see all 77 sequels? You’d have to go to the movies 1 ½ times per week to achieve that! 
-
-When you look at the history of sequels, remakes, and reboots over time, the only movie type currently at its peak is reboots, with five films in 2017. Remakes and sequels both reached their peak production long ago: in 1941 and 1994, respectively. We have fewer sequels and remakes being made than before, and if we take into consideration the fact that the movie industry has grown over time, expanding to the point where around 60,000 movies are produced each year, these unoriginal films make up a smaller percentage of the movie industry than they ever have.
+These might seem like pretty big numbers when you consider how many movies you watch per year--who has time to go see 77 sequels?--but when you look at the history of these unoriginal movies, the only type currently at its peak is reboots, with five films in 2017. Remakes and sequels both reached their peak long ago: in 1941 and 1994, respectively. We have fewer sequels and remakes being made now, and if we take into consideration the fact that the movie industry has grown significantly, these unoriginal films make up a smaller percentage of the movie industry than they ever have.
 
 
 <div style="margin-bottom:40px;">
@@ -226,13 +224,14 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
 </div>
 
 
-As seen above, the highest percentage of unoriginal movies occurred in the 1940s. However, even in the biggest year for unoriginality, 1942, sequels, remakes, and reboots made up less than 5% of all the movies released. Over the last few decades, the percentage of unoriginal movies has been in considerable decline.This year, only a fraction of 1% of all movies made were unoriginal. 
+As seen above, the highest percentage of unoriginal movies occurred in the 1940s. Even in the biggest year for unoriginality, 1942, sequels, remakes, and reboots made up less than 5% of movies. 
+Over the last few decades, the percentage of unoriginal movies has been in considerable decline. This year, less than 1% of all movies made were unoriginal. 
 
-An obvious reason for this is the large and increasing number of movies made. In 1942, just over 2,000 movies were produced whereas this year, over 50,000 movies were created. Sequel, remake and reboot production just can’t seem keep up with the ever growing number of movies.
+An big reason for this is the quickly increasing number of movies produced. In 1942, around 2,000 movies were released. This year, there were over 50,000. Sequel, remake and reboot production just can’t seem keep up with the ever growing number of movies.
 
 So if there really aren’t that many unoriginal movies being made, why does it seem like they’re everywhere?
 
-Even though we may seem crazy for claiming that there aren’t enough original movies after seeing all this data, there is certainly a reason that sequels, remakes, and reboots fill our thoughts so much. That reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” [^3]
+There is certainly a reason that sequels, remakes, and reboots fill our thoughts so much, and that reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” [^3]
 
 
 ```{r}
@@ -257,23 +256,23 @@ kable(top_grossing[1:20, -(5:8) ], caption = "Top Grossing Movies of All Time")
 
 The success of unoriginal films becomes even more impressive when considering [individual years](https://stephenfollows.com/how-original-are-hollywood-movies/). In 2007, 2013, and 2014, the top ten grossing movies were all “derived from a pre-existing movie or source.” [^4]
 
-We like things we are familiar with, something known as the [Mere Exposure Effect](https://www.psychologytoday.com/blog/sapient-nature/201201/familiarity-breeds-enjoyment). Naturally it applies to movies: being familiar with a movie’s premise or it’s characters makes us more likely to go see it. Additionally, unoriginal movies require a lot less work on the part of the viewer if they are familiar with the original. As many people use movies as a way to relax, having less work figuring out plot and characters looks very appealing. 
+We like things we are familiar with, something known as the [Mere Exposure Effect](https://www.psychologytoday.com/blog/sapient-nature/201201/familiarity-breeds-enjoyment). Familiarity with a movie’s premise or characters makes us more likely to see it. Additionally, unoriginal movies require a lot less work on the part of the viewer if they are familiar with the original. Many people use movies as a way to relax, so having less work figuring out the plot and characters can be appealing. 
 
 It’s no wonder, then, that unoriginal movies fill our thoughts. These are the blockbuster movies that bring in the most revenue, are the most seen, are the most heavily advertised, and are therefore the most talked about.
 
-If moviegoers continue to purchase tickets to unoriginal movies, companies will continue to produce them at a fast rate, because there’s little risk involved. Producers have an idea of how big their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base that can be counted on to go watch the movie when it’s released. Who wouldn’t release a movie guaranteed to be a success?
+If moviegoers continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
 
 It seems like moviegoers are causing their own frustration. The only way to reduce the number of these movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
 
 ==========================================================================================================
 
-*This project's iterations can be found in our GitHub repository.*[^5]
+*Project iterations can be found on GitHub*[^5]
 
 
-[^1]: Conducted at the end of 2016, the poll is not a random sample. It was voluntary and only accessible by users who accessed the Tylt website. However, it does still provide a glimpse as to what moviegoers think of reboots, since it can be assumed that most respondents were film fans. 
-[^2]: The IMDb was accessed through Smith College’s scidb database using MySQL.
+[^1]: This poll is not a random sample. It was voluntary and only completed by users of the Tylt website. However, it does still provide a glimpse as to what moviegoers think of reboots, since it can be assumed that most respondents were film fans. 
+[^2]: The IMDb was accessed through Smith College’s `scidb` database using MySQL.
 [^3]: All other movies were either a sequel (or series installment), remake, or reboot. Additionally, the trend of unoriginality can be seen all throughout the top 100 movies.
 [^4]: A pre-existing source in this case does not have to be another movie. It could also mean the movie is a remake of a book. This is described in detail on the linked website.
-[^5]: [Github repository](https://github.com/ambertin/mp4.git)
+[^5]: [Repository](https://github.com/ambertin/mp4.git)
 
 
