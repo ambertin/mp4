@@ -210,8 +210,14 @@ proportion <- total_movies %>%
 ```{r, warning=FALSE}
 ggplot(proportion, aes(x= production_year, y = prop_srr)) + 
   geom_area() + 
-  scale_x_continuous(name = "Production Year", limits = c(1895, 2017), breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020), labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
-  scale_y_continuous(breaks = c(1, 2, 3, 4), labels = c("1%", "2%", "3%", "4%")) +
+  scale_x_continuous(
+    name = "Production Year",
+    limits = c(1895, 2017),
+    breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020),
+    labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
+  scale_y_continuous(
+    breaks = c(1, 2, 3, 4),
+    labels = c("1%", "2%", "3%", "4%")) +
   ggtitle ("Percentage of Movies Considered Unoriginal") +
   theme_fivethirtyeight()
 
@@ -259,10 +265,15 @@ If moviegoers continue to purchase tickets to unoriginal movies, companies will 
 
 It seems like moviegoers are causing their own frustration. The only way to reduce the number of these movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
 
+==========================================================================================================
+
+*This project's iterations can be found in our GitHub repository.*[^5]
+
 
 [^1]: Conducted at the end of 2016, the poll is not a random sample. It was voluntary and only accessible by users who accessed the Tylt website. However, it does still provide a glimpse as to what moviegoers think of reboots, since it can be assumed that most respondents were film fans. 
 [^2]: The IMDb was accessed through Smith College’s scidb database using MySQL.
 [^3]: All other movies were either a sequel (or series installment), remake, or reboot. Additionally, the trend of unoriginality can be seen all throughout the top 100 movies.
 [^4]: A pre-existing source in this case does not have to be another movie. It could also mean the movie is a remake of a book. This is described in detail on the linked website.
+[^5]: [Github repository](https://github.com/ambertin/mp4.git)
 
 
