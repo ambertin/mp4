@@ -196,10 +196,16 @@ These might seem like pretty big numbers when you consider how many movies you w
 
 total_movies <- db %>%
   dbGetQuery(
-    "SELECT production_year, count(*) AS number
-     FROM imdb.title
+    "SELECT production_year, count(distinct t.id) AS number
+     FROM imdb.title t
+     LEFT JOIN movie_info mi ON mi.movie_id = t.id
+     LEFT JOIN movie_info mi2 on mi2.movie_id = t.id
      WHERE kind_id = 1 AND production_year BETWEEN 1895 and 2025
+       AND mi.info_type_id = 1 AND mi.info >= 80 
+       AND mi2.info_type_id = 8 and mi2.info = 'USA'
      GROUP BY production_year;")
+
+ggplot(total_movies, aes(x=production_year, y=number)) + geom_area()
 
 ```
 
@@ -218,10 +224,7 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
     name = "Production Year",
     limits = c(1895, 2017),
     breaks= c(1900,1910,1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020),
-    labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) + 
-  scale_y_continuous(
-    breaks = c(1, 2, 3, 4),
-    labels = c("1%", "2%", "3%", "4%")) +
+    labels = c("1900",'1910','1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020'))+
   ggtitle ("Percentage of Movies Considered Unoriginal") +
   theme_fivethirtyeight()
 
