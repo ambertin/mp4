@@ -40,7 +40,7 @@ You’ve heard it said: no movies are original anymore. It certainly feels that 
 
 In a 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production, and when considering the fact that more movies are being made now than ever before, unoriginal films make up a significantly smaller proportion of the movie industry than in the past.
 
-In order to determine the number of unoriginal movies produced, we pulled data on all feature length movies released in the past century tagged with the keywords `remake`, `reboot`, or `sequel` in the IMDb. 
+In order to determine the number of unoriginal movies produced, we pulled data on all feature length movies released in the past century tagged with the keywords `remake`, `reboot`, or `sequel` in the IMDb.[^2]
 
 Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think Scarface, based on a 1932 movie of the same name.
 
@@ -187,7 +187,7 @@ According to the IMDb data, the numbers of unoriginal movies released in 2017 we
 	Remakes: 9
 	Reboots: 2
 
-These might seem like pretty big numbers when you consider how many movies you watch per year--who has time to go see 54 sequels?--but when you look at the history of these unoriginal movies, the only type currently at its peak is reboots, with two films in 2017. Remakes and sequels both reached their peak long ago: in 1999 and 1994, respectively. We have fewer sequels and remakes being made now, and if we take into consideration the fact that the movie industry has grown significantly, these unoriginal films make up a smaller percentage of the movie industry than they ever have.
+These might seem like pretty big numbers when you consider how many movies you watch per year--who has time to go see 54 sequels? That's more than one movie a week!--but when you look at the history of these unoriginal movies, the only type currently at its peak is reboots, with two films in 2017. Remakes and sequels both reached their peak long ago: in 1999 and 1994, respectively. We have fewer sequels and remakes being made now, and if we take into consideration the fact that the movie industry has grown significantly, these unoriginal films make up a smaller percentage of the movie industry than they ever have.
 
 
 <div style="margin-bottom:40px;">
@@ -270,9 +270,12 @@ It’s no wonder, then, that unoriginal movies fill our thoughts. These are the 
 
 If moviegoers continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
 
-It seems like moviegoers are causing their own frustration. The only way to reduce the number of these movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
+Moviegoers are causing their own frustration. The only way to reduce the number of unoriginal movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
 
 
+
+
+*The iterations for this project can be found on GitHub*[^5]
 
 
 [^1]: This poll is not a random sample. It was voluntary and only completed by users of the Tylt website. However, it does still provide a glimpse as to what moviegoers think of reboots, since it can be assumed that most respondents were film fans. 
