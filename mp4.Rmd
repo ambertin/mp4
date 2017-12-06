@@ -40,7 +40,7 @@ You’ve heard it said: no movies are original anymore. It certainly feels that 
 
 In a 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production, and when considering the fact that more movies are being made now than ever before, unoriginal films make up a significantly smaller proportion of the movie industry than in the past.
 
-In order to determine the number of unoriginal movies produced since 1895, we pulled data on all movies in the IMDb[^2] tagged with the keywords `remake`, `reboot`, or `sequel`. 
+In order to determine the number of unoriginal movies produced, we pulled data on all feature length movies released in the past century tagged with the keywords `remake`, `reboot`, or `sequel` in the IMDb. 
 
 Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think Scarface, based on a 1932 movie of the same name.
 
@@ -128,9 +128,7 @@ plot <- remakes_by_year_gathered %>%
     expand = c(0,0)) + 
     # Add more labels (for each decade) to the plot
   scale_y_continuous(
-    breaks = c(0, 30, 60, 90, 120),
-    labels = c("0", "30", "60", "90", "120 Movies")
-  ) + 
+    breaks = c(0, 15, 30, 45, 60, 75, 90)) + 
   geom_vline(xintercept = 2017) +
   # Add a line showing the current year. All movies after this line are planned and not actually finished.
   scale_color_brewer(
@@ -140,37 +138,37 @@ plot <- remakes_by_year_gathered %>%
     labels = c("Sequel", "Remake", "Reboot")) +
   xlab(NULL) +
   ylab("Number of Movies Produced") +
-  ggtitle ("Number of Movie Sequels, Remakes, and Reboots Each Year Since 1895") +
+  ggtitle ("Number of Movie Sequels, Remakes, and Reboots Over The Last 100 Years") +
   geom_curve(
     x = 1983, xend = 1994,
-    y = 105, yend = 116,
+    y = 60, yend = 73,
     arrow = arrow(length = unit(0.3,"cm")),
     curvature = -0.5,
     color = "black") +
   geom_curve(
-    x = 1950, xend = 1942,
-    y = 78, yend = 67,
+    x = 2007, xend = 1999,
+    y = 50, yend = 41,
     arrow = arrow(length = unit(0.3, "cm")),
     curvature = -0.5,
     color = "black") +
   geom_curve(
-    x = 2008, xend = 2017,
-    y = 15, yend = 5,
+    x = 2008, xend = 2016,
+    y = 10, yend = 2,
     arrow = arrow(length = unit(0.3, "cm")),
     curvature = 0.5,
     color = "black") +
   geom_text(
-    x = 1955, y = 80,
-    label = "Most Remakes:\n67 in 1941",
+    x = 2006, y = 54,
+    label = "Most Remakes:\n41 in 1999",
     size = 4,
     color = "black") +
   geom_text(
-    x = 1980, y = 100,
-    label = "Most Sequels:\n116 in 1994",
+    x = 1980, y = 57,
+    label = "Most Sequels:\n73 in 1994",
     size = 4,
     color = "black") +
   geom_text(
-    x = 2010, y = 17,
+    x = 2010, y = 14,
     label = "Most Reboots:\n2 in 2017",
     size = 4,
     color = "black") +
@@ -223,7 +221,9 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
     name = "Production Year",
     limits = c(1917, 2017),
     breaks= c(1920,1930,1940,1950,1960,1970,1980,1990,2000,2010,2020),
-    labels = c('1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020'))+
+    labels = c('1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020')) +
+  scale_y_continuous(
+    labels = c("0%", "2.5%", "5%", "7.5%", "10%"))+
   ggtitle ("Percentage of Movies Considered Unoriginal") +
   theme_fivethirtyeight()
 
@@ -231,11 +231,11 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
 
 </div>
 
+As seen above, the highest percentage of unoriginal movies occurred around 1920. Even in the biggest year for unoriginality, sequels, remakes, and reboots only made up just over 10% of movies. 
 
-As seen above, the highest percentage of unoriginal movies occurred in the 1940s. Even in the biggest year for unoriginality, 1942, sequels, remakes, and reboots made up less than 5% of movies. 
-Over the last few decades, the percentage of unoriginal movies has been in considerable decline. This year, less than 1% of all movies made were unoriginal. 
+Over the last few decades, the percentage of unoriginal movies has been in considerable decline. This year, only around 1% of all movies made were unoriginal. 
 
-An big reason for this is the quickly increasing number of movies produced. In 1942, around 2,000 movies were released. This year, there were over 50,000. Sequel, remake and reboot production just can’t seem keep up with the ever growing number of movies.
+An big reason for this is the quickly increasing number of movies produced. A hundred years ago, around 50 movies were released annually. This year, there were over 7,000. Sequel, remake and reboot production just can’t seem keep up with the ever growing number of movies.
 
 So if there really aren’t that many unoriginal movies being made, why does it seem like they’re everywhere?
 
