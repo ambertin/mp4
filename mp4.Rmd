@@ -35,7 +35,6 @@ db <-dbConnect_scidb(dbname = "imdb")
 
 ![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg){ width=10in }
 
-==========================================================================================================
 
 You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, a new Guardians of the Galaxy, a Beauty and the Beast remake, the *ninth* Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
 
@@ -60,11 +59,14 @@ remakes_reboots_sequels <- db %>%
   dbGetQuery(
     "SELECT kw.id, kw.keyword, t.title, t.production_year 
      FROM imdb.keyword kw
-     JOIN movie_keyword mkw 
-     ON kw.id = mkw.keyword_id
-     JOIN title t
-     ON t.id = mkw.movie_id
-     WHERE kw.id IN (82, 1134, 20757) AND t.kind_id = 1;")
+     JOIN movie_keyword mkw ON kw.id = mkw.keyword_id
+     JOIN title t ON t.id = mkw.movie_id
+     LEFT JOIN movie_info mi ON mi.movie_id = t.id
+     LEFT JOIN movie_info mi2 ON mi2.movie_id = t.id
+     WHERE kw.id IN (82, 1134, 20757) AND t.kind_id = 1
+	AND t.production_year BETWEEN 1920 AND 2018
+     AND mi.info_type_id = 1 AND mi.info >= 80
+     GROUP BY t.id;")
 
 # 82, 1134, and 20757 are the keyword id numbers that correspond to the keywords remake, reboot, and sequel.
     
@@ -200,9 +202,8 @@ total_movies <- db %>%
      FROM imdb.title t
      LEFT JOIN movie_info mi ON mi.movie_id = t.id
      LEFT JOIN movie_info mi2 on mi2.movie_id = t.id
-     WHERE kind_id = 1 AND production_year BETWEEN 1895 and 2025
+     WHERE kind_id = 1 AND production_year BETWEEN 1940 AND 2018
        AND mi.info_type_id = 1 AND mi.info >= 80 
-       AND mi2.info_type_id = 8 and mi2.info = 'USA'
      GROUP BY production_year;")
 
 ggplot(total_movies, aes(x=production_year, y=number)) + geom_area()
@@ -273,9 +274,7 @@ If moviegoers continue to purchase tickets to unoriginal movies, companies will 
 
 It seems like moviegoers are causing their own frustration. The only way to reduce the number of these movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
 
-==========================================================================================================
 
-*Project iterations can be found on GitHub*[^5]
 
 
 [^1]: This poll is not a random sample. It was voluntary and only completed by users of the Tylt website. However, it does still provide a glimpse as to what moviegoers think of reboots, since it can be assumed that most respondents were film fans. 
