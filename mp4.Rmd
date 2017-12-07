@@ -230,15 +230,15 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
 
 </div>
 
-As seen above, the highest percentage of unoriginal movies occurred around 1920. Even in the biggest year for unoriginality, sequels, remakes, and reboots only made up just over 10% of movies. 
+As seen above, the highest percentage of unoriginal movies occurred around 1920, almost 100 years ago. Even in the biggest year for unoriginality, sequels, remakes, and reboots only made up just over 10% of movies. 
 
-Over the last few decades, the percentage of unoriginal movies has been in considerable decline. This year, only around 1% of all movies made were unoriginal. 
+Additionally, over the last few decades, the percentage of unoriginal movies has been steadily declining. This year, only 1% of all movies made were unoriginal.  
 
 An big reason for this is the quickly increasing number of movies produced. A hundred years ago, around 50 movies were released annually. This year, there were over 7,000. Sequel, remake and reboot production just can’t seem keep up with the ever growing number of movies.
 
 So if there really aren’t that many unoriginal movies being made, why does it seem like they’re everywhere?
 
-There is certainly a reason that sequels, remakes, and reboots fill our thoughts so much, and that reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” [^3]
+There is certainly a reason that sequels, remakes, and reboots fill our thoughts so much, and that reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” [^3] 
 
 
 ```{r}
@@ -263,11 +263,11 @@ kable(top_grossing[1:20, -(5:8) ], caption = "Top Grossing Movies of All Time")
 
 The success of unoriginal films becomes even more impressive when considering [individual years](https://stephenfollows.com/how-original-are-hollywood-movies/). In 2007, 2013, and 2014, the top ten grossing movies were all “derived from a pre-existing movie or source.” [^4]
 
-We like things we are familiar with, something known as the [Mere Exposure Effect](https://www.psychologytoday.com/blog/sapient-nature/201201/familiarity-breeds-enjoyment). Familiarity with a movie’s premise or characters makes us more likely to see it. Additionally, unoriginal movies require a lot less work on the part of the viewer if they are familiar with the original. Many people use movies as a way to relax, so having less work figuring out the plot and characters can be appealing. 
+Unoriginal films just seem to attract big crowds. We like things we are familiar with, something known as the [Mere Exposure Effect](https://www.psychologytoday.com/blog/sapient-nature/201201/familiarity-breeds-enjoyment). Familiarity with a movie’s premise or characters makes us more likely to see it. Additionally, unoriginal movies require a lot less work on the part of the viewer if they are familiar with the original. Many people use movies as a way to relax, so having less work figuring out the plot and characters can be appealing. 
 
-It’s no wonder, then, that unoriginal movies fill our thoughts. These are the blockbuster movies that bring in the most revenue, are the most seen, are the most heavily advertised, and are therefore the most talked about.
+It’s no wonder, then, that unoriginal movies fill our thoughts. These are the blockbuster movies that bring in the most revenue, are the most seen, are the most heavily advertised, and are therefore the most talked about. You can probably count on one hand the number of people you know who are unaware that "The Last Jedi" is coming out soon.
 
-If moviegoers continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
+If people continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
 
 Moviegoers are causing their own frustration. The only way to reduce the number of unoriginal movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
 
