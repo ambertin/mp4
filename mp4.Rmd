@@ -33,7 +33,8 @@ db <-dbConnect_scidb(dbname = "imdb")
 
 
 ![](https://i.pinimg.com/736x/bb/4e/16/bb4e169b259dca3a91b0174249f6f3c1--movie-memes-tv-movie.jpg){ width=10in }
-
+<br>
+</br>
 
 You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, a new Guardians of the Galaxy, a Beauty and the Beast remake, the *ninth* Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
 
