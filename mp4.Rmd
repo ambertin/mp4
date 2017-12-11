@@ -10,7 +10,6 @@ output:
     fig_caption: true
     theme: yeti
     highlight: tango
-timezone: America/New_York    
 ---
 
 
@@ -139,6 +138,7 @@ plot <- remakes_by_year_gathered %>%
   xlab(NULL) +
   ylab("Number of Movies Produced") +
   ggtitle ("Number of Movie Sequels, Remakes, and Reboots Over The Last 100 Years") +
+  labs(caption = "Source: IMDb") +
   geom_curve(
     x = 1983, xend = 1994,
     y = 60, yend = 73,
@@ -224,6 +224,7 @@ ggplot(proportion, aes(x= production_year, y = prop_srr)) +
   scale_y_continuous(
     labels = c("0%", "2.5%", "5%", "7.5%", "10%"))+
   ggtitle ("Percentage of Movies Considered Unoriginal") +
+  labs(caption = "Source: IMDb") +
   theme_fivethirtyeight()
 
 ```
