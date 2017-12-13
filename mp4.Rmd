@@ -36,13 +36,14 @@ db <-dbConnect_scidb(dbname = "imdb")
 <br>
 </br>
 
-My friends often complain that no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have *Cars 3*, a new *Guardians of the Galaxy*, a *Beauty and the Beast* remake, the __ninth__ *Planet of the Apes* movie, and the latest installment in the *Star Wars* franchise. However, in reality, far fewer of these movies are released than may appear. 
+
+Complaints that no movies are original anymore have begun to surface in recent years. "As a film fan it’s really disheartening to see Hollywood go back to the well so often," says one [ScreenRant](https://screenrant.com/movie-remakes-movie-sequels/) author. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have *Cars 3*, a new *Guardians of the Galaxy*, a *Beauty and the Beast* remake, the __ninth__ *Planet of the Apes* movie, and the latest installment in the *Star Wars* franchise. However, in reality, far fewer of these movies are released than may appear. 
 
 In a 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production, and when considering the fact that more movies are being made now than ever before, unoriginal films make up a significantly smaller proportion of the movie industry than in the past.
 
 In order to determine the number of unoriginal movies produced around the world, we pulled data on all feature length movies released in the past century tagged with the keywords `remake`, `reboot`, or `sequel` in the IMDb.[^2]
 
-Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think Scarface, based on a 1932 movie of the same name.
+Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think *Scarface*, based on a 1932 movie of the same name.
 
 Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to its most core elements, and a new story is built predominantly from scratch. Think *Batman Begins* or the 2009 movie my family lovingly refers to as "Star Trek Kids."
 
@@ -267,7 +268,7 @@ The success of unoriginal films becomes even more impressive when considering [i
 
 Unoriginal films just seem to attract big crowds. We like things we are familiar with, something known as the [Mere Exposure Effect](https://www.psychologytoday.com/blog/sapient-nature/201201/familiarity-breeds-enjoyment). Familiarity with a movie’s premise or characters makes us more likely to see it. Additionally, unoriginal movies require a lot less work on the part of the viewer if they are familiar with the original. Many people use movies as a way to relax, so having less work figuring out the plot and characters can be appealing. 
 
-It’s no wonder, then, that unoriginal movies fill our thoughts. These are the blockbuster movies that bring in the most revenue, are the most seen, are the most heavily advertised, and are therefore the most talked about. You can probably count on one hand the number of people you know who are unaware that "The Last Jedi" is coming out soon.
+It’s no wonder, then, that unoriginal movies fill our thoughts. These are the blockbuster movies that bring in the most revenue, are the most seen, are the most heavily advertised, and are therefore the most talked about. You can probably count on one hand the number of people you know who are unaware that *The Last Jedi* was just released.
 
 If people continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
 
