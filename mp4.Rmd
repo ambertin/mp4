@@ -36,7 +36,7 @@ db <-dbConnect_scidb(dbname = "imdb")
 <br>
 </br>
 
-You’ve heard it said: no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have Cars 3, a new Guardians of the Galaxy, a Beauty and the Beast remake, the *ninth* Planet of the Apes movie, and the latest installment in the Star Wars franchise. However, in reality, far fewer of these movies are released than may appear. 
+My friends often complain that no movies are original anymore. It certainly feels that way. [Just this year](http://uproxx.com/movies/2017-sequels/) we have *Cars 3*, a new *Guardians of the Galaxy*, a *Beauty and the Beast* remake, the __ninth__ *Planet of the Apes* movie, and the latest installment in the *Star Wars* franchise. However, in reality, far fewer of these movies are released than may appear. 
 
 In a 2016 [Tylt poll](https://thetylt.com/entertainment/are-there-too-many-hollywood-reboots-and-sequels), the vast majority (79.3%) of respondents said that there are “#TooManyReboots.” [^1] We set out to determine if this was actually true, or if the number of unoriginal movies is being blown out of proportion. As it turns out, we are not even at peak sequel or remake production, and when considering the fact that more movies are being made now than ever before, unoriginal films make up a significantly smaller proportion of the movie industry than in the past.
 
@@ -44,9 +44,9 @@ In order to determine the number of unoriginal movies produced around the world,
 
 Remakes generally reference projects that keep the most important features of an older movie, such as characters and story, and remake it using different actors, more advanced film techniques, and special effects. Remakes tend to add new, socially relevant dialogue to appeal to modern audiences. Think Scarface, based on a 1932 movie of the same name.
 
-Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to its most core elements, and a new story is built predominantly from scratch. Think "Batman Begins" or the 2009 movie my family lovingly refers to as "Star Trek Kids."
+Reboots are complete overhauls of the source material–a reimagining of a story. Typically, the source is stripped down to its most core elements, and a new story is built predominantly from scratch. Think *Batman Begins* or the 2009 movie my family lovingly refers to as "Star Trek Kids."
 
-Sequels continue the story of, or expand upon, earlier films. These often have the same characters, and similar settings, as the films they follow. Major film franchises have lots of sequels-Star Wars, Marvel, and Pirates of the Caribbean, to name a few.
+Sequels continue the story of, or expand upon, earlier films. These often have the same characters, and similar settings, as the films they follow. Major film franchises have lots of sequels-*Star Wars*, Marvel, and *Pirates of the Caribbean*, to name a few.
 
 
 <div style="margin-bottom:40px;">
@@ -240,7 +240,7 @@ An big reason for this is the quickly increasing number of movies produced. A hu
 
 So if there really aren’t that many unoriginal movies being made, why does it seem like they’re everywhere?
 
-There is certainly a reason that sequels, remakes, and reboots fill our thoughts so much, and that reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: “Avatar,” “Titanic,” “Frozen,” and “Minions.” [^3] 
+There is certainly a reason that sequels, remakes, and reboots fill our thoughts so much, and that reason is **money**. Of the top 20 [highest grossing movies](http://www.boxofficemojo.com/alltime/world/) of all time, only 4 can be classified as truly original: *Avatar,* *Titanic,* *Frozen,* and *Minions.* [^3] 
 
 
 ```{r}
@@ -271,7 +271,7 @@ It’s no wonder, then, that unoriginal movies fill our thoughts. These are the 
 
 If people continue to purchase tickets to unoriginal movies, companies will continue to produce them because there’s little risk involved. Producers can predict how large their audience will be, there’s already a lot of time put into character development, and there’s already a dedicated fan base they know will go watch the movie when it’s released. Who wouldn’t make a movie guaranteed to be a success?
 
-Moviegoers are causing their own frustration. The only way to reduce the number of unoriginal movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new Star Wars movie gets announced.
+Moviegoers are causing their own frustration. The only way to reduce the number of unoriginal movies made and reduce the level of annoyance is to stop watching them. If you’re someone who votes “#TooManyReboots,” it might be time to consider watching some indie movies instead. You’re not likely to get anywhere by streaming into the theaters every time a new *Star Wars* movie gets announced.
 
 
 
